@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Loop</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="bg-gray-900 text-white h-screen w-screen p-5 overflow-hidden grid gap-2 grid-cols-5 grid-rows-2">
+  <section class="border-2 overflow-auto border-dashed border-red-400 p-4 col-start-1 col-end-3 flex flex-col justify-center">
+    <h3 class="text-3xl text-center mb-1">Function Calls</h3>
+    <div style="max-height: 23rem;" class="grid flex-1 grid-cols-4 gap-1 grid-rows-6">
+      <div id="executeBox"
+        class=" overflow-y-auto border-2 p-1 pb-0  border-dashed border-white-400 row-start-1 row-end-6 col-start-1 col-end-4 flex items-stretch justify-start flex-col-reverse">
+      </div>
+      <div id="execute"
+        class="bg-green-600  shadow-2xl row-start-6 row-end-7 col-start-1 col-end-4 flex items-center justify-center">
+        <p>Execute</p>
+      </div>
+      <div id="clear"
+        class="bg-red-600 shadow-2xl row-start-6 row-end-7 col-start-4 col-end-5 flex items-center justify-center">
+        <p>Clear</p>
+      </div>
+      <div class="shadow-2xl col-rows-4 col-end-5 row-start-1 row-end-6 grid grid-cols-1 gap-1 grid-rows-5">
+        <button id="function" class="bg-gray-600 shadow-2xl flex items-center justify-center focus:outline-none">
+          Function
+        </button>
+        <button id="setTimeout" class="bg-gray-600 shadow-2xl flex items-center justify-center focus:outline-none">
+          Set Timeout
+        </button>
+        <button id="setInterval" class="bg-gray-600 shadow-2xl flex items-center justify-center focus:outline-none">
+          Set Interval
+        </button>
+        <button id="callback" class="bg-gray-600 shadow-2xl flex items-center justify-center focus:outline-none">
+          Callback
+        </button>
+        <button id="promise" class="bg-gray-600 shadow-2xl flex items-center justify-center focus:outline-none">
+          Promise
+        </button>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section
+    class="border-2 overflow-auto border-dashed border-blue-400 p-4 col-start-1 col-end-3 flex items-stretch justify-center flex-col">
+    <h3 class="text-3xl text-center mb-1">API's &amp Event Queue</h3>
+    <div class="p-1 overflow-y-auto  max-h-96 pb-0 flex-1 grid grid-cols-3 grid-rows-1 gap-2">
+      <div id="promiseBox"
+        class="border-2 overflow-auto border-dashed border-white-400 p-2 flex items-stretch justify-start flex-col-reverse relative">
+        <div class="absolute top-0 left-0 back  w-full h-full flex items-center justify-center ">
+          <p class="transform -rotate-90 text-white opacity-70  text-lg tracking-widest whitespace-nowrap">
+            Promises To Resolve </p>
+        </div>
+      </div>
+      <div id="timeoutBox"
+        class="border-2 overflow-auto border-dashed border-white-400 p-2 flex items-stretch justify-start flex-col-reverse relative">
+        <div class="absolute top-0 left-0 back  w-full h-full flex items-center justify-center ">
+          <p class="transform -rotate-90 text-white opacity-70  text-lg tracking-widest whitespace-nowrap">
+            Subscriptions
+          </p>
+        </div>
+      </div>
+      <div id="functionLogBox"
+        class="border-2 overflow-auto border-dashed border-white-400 p-2 flex items-stretch justify-start flex-col-reverse relative">
+        <div class="absolute top-0 left-0 back  w-full h-full flex items-center justify-center ">
+          <p class="transform -rotate-90 text-white opacity-70  text-lg tracking-widest whitespace-nowrap">
+            Event Queue
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    class="border-2 border-dashed overflow-auto border-green-400 col-start-3 col-end-6 row-start-1 row-end-3 p-4 flex items-stretch justify-center flex-col">
+    <h3 class="text-3xl text-center">Event Loop</h3>
+    <div class="flex-1 flex justify-center items-center">
+      <canvas id="canvas" width="500" height="500" class="rounded-full shadow-xl"></canvas>
+      <div id="excecutionBlock" class="bg-blue-900 w-24 h-24 p-5"></div>
+    </div>
+  </section>
+  <div
+    class=" lg:hidden top-0 left-0 fixed w-screen h-screen bg-gray-900 z-20 flex justify-center items-center flex-col ">
+    <h3 class="text-3xl mb-4 text-red-400 text-center">
+      Looks like you are using a Mobile / Tablet
+    </h3>
+    <p class="text-xl mb-4 text-yellow-400 text-center">
+      Use of A Laptop / Desktop is recommended
+    </p>
+  </div>
+</body>
+<style>
+  #canvas {
+    z-index: 2;
+  }
+
+  #excecutionBlock {
+    position: relative;
+  }
+
+  #excecutionBlock::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    background-color: inherit;
+    height: 10px;
+    top: 43px;
+    width: 50px;
+    right: 100%;
+  }
+
+  .back {
+    z-index: -1;
+  }
+</style>
+<script src="./constants.js"></script>
+<script src="./dataStructure.js"></script>
+<script src="./customizeDOM.js"></script>
+<script src="./utilities.js"></script>
+<script src="./elements.js"></script>
+<script src="./actions.js"></script>
+<script src="./canvasAnimation.js"></script>
+
+</html>

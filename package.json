@@ -1,0 +1,25 @@
+{
+  "name": "eventloop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server build --port=3000",
+    "build:css": "postcss styles/* -o build/style.css",
+    "watch:css": "watch 'npm run build:css'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "live-server": "^1.2.1",
+    "postcss": "^8.2.8",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.4",
+    "watch": "^1.0.2"
+  }
+}
